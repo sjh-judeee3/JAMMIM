@@ -136,3 +136,13 @@ def process_all_keypoint_files():
                 output_path = os.path.join(OUTPUT_DIR, output_filename)
                 
                 np.save(output_path, transformed_features)
+                print(f"Processed {filename} -> Saved to {output_filename}")
+                
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
+
+if __name__ == '__main__':
+    # 이 함수를 실행하기 전에 'data/keypoints/' 폴더에 .npy 파일이 있어야 합니다.
+    print("Starting rules-based feature transformation...")
+    process_all_keypoint_files()
+    print("Feature transformation complete.")
